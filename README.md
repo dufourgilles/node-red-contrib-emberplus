@@ -45,9 +45,11 @@ The message payload types are:
 The string should be similar to the obejct above.
 
 The argument types are
+```
 1 integer
 2 real
 3 string
+```
 
 ![Inject a function](https://github.com/dufourgilles/node-red-contrib-emberplus/blob/master/images/function_inject.png)
 
