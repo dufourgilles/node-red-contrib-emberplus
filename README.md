@@ -1,4 +1,4 @@
-# node-red-contrib-emberplus
+# node-red-contrib-ember
 Simple Ember+ client node for broadcast automation (LAWO, DHD, etc.). Ember+ is open source and implemented in hard- and software products. More information can be found here: [Ember+ control protocol](https://github.com/Lawo/ember-plus/wiki)
 
 ## install
