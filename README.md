@@ -1,6 +1,9 @@
 # node-red-contrib-emberplus
 Simple Ember+ client node for broadcast automation (LAWO, DHD, etc.). Ember+ is open source and implemented in hard- and software products. More information can be found here: [Ember+ control protocol](https://github.com/Lawo/ember-plus/wiki)
 
+## install
+
+
 ##  emberplus-server node 
 First of all there is at least one emberplus-server node to be configured. Simply set an IP address and a port (usually 9000). It is possible to add several emberplus-server nodes for different targets (for example all your audio mixers).
 Optionally, provide a coma separated list of paths to limit the tree.
