@@ -73,7 +73,10 @@ module.exports = function (RED) {
                         if (node.client) {
                                 delete node.client;
                         }
-                        var client = new EmberClient(node.host, node.port);
+                        var client = new EmberClient({
+                                host: node.host,
+                                port: node.port
+                        });
                         node.client = client;
                         node.paths = [];
                         client.on("error", e => {
