@@ -114,7 +114,7 @@ module.exports = function (RED) {
                         this.log(`Sending new value ${v} to parameter ${element.path}`);
                         await node.client.setValueAsync(element, v);
                     } else if(element.isMatrix()) {
-                        await node.client.matrixConnect(element, v.target, v.sources);
+                        await node.client.matrixConnectAsync(element, v.target, v.sources);
                     }
                 }
             } catch(e) {
