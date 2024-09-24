@@ -7,8 +7,7 @@
             server: { value: "", type: "emberplus-server" },
             path: { value: "", required: false },
             read: { value: true, required: false },
-            outputMode: { value: "value", required: true },
-            matrixType: {value: "", required: true}
+            outputMode: { value: "value", required: true }
         },
         inputs: 1,
         outputs: 1,
