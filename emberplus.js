@@ -99,13 +99,7 @@ module.exports = function (RED) {
                 }
                 const element = await node.client.getElementByPathAsync(node.path);
                 const p = (payload.full != undefined && payload.full.path != undefined) ? payload.full.path : node.path;
-                if (element.isParameter()) {                    
-                    const v = (payload.full != undefined && payload.full.value != undefined) ? payload.full.value : payload;
-                    if (element.value != v) {
-                        this.log(`Sending new value ${v} to parameter ${element.path}`);
-                        await node.client.setValueAsync(element, v);
-                    }
-                } else if (element.isFunction()) {
+                if (element.isFunction()) {
                     /**
                      * @type {NodeRedFunctionArgs}[]
                      */
@@ -114,6 +108,14 @@ module.exports = function (RED) {
                     const invokeResult = await node.client.invokeFunctionAsync(element, args.map(convertArg));
                     this.log(`Received fonction ${element.path} result ${JSON.stringify(invokeResult.toJSON())}`);
                     updateOutput(invokeResult, send);
+                } else {
+                    const v = (payload.full != undefined && payload.full.value != undefined) ? payload.full.value : payload;
+                    if (element.isParameter() && element.value != v) {                    
+                        this.log(`Sending new value ${v} to parameter ${element.path}`);
+                        await node.client.setValueAsync(element, v);
+                    } else if(element.isMatrix()) {
+                        await node.client.matrixConnect(element, v.target, v.sources);
+                    }
                 }
             } catch(e) {
                 if (done) {
