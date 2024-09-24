@@ -35,6 +35,20 @@ true
 {"full":{"path":"0.1.0","value":true}}
 ```
 
+For a Matrix node, that input pin is used to pass connection to establish the matrix connection on the ember server.
+The message payload types are:
+- msg.payload takes the matrix connection object as a value to set to the specified node path. Example:
+```
+{
+  "target": number, // matrix destination port number
+  "sources": number[] // Array of sources would be activated on the ember server.
+}
+```
+- msg.payload contains path and value to the specified node. Example:
+```
+{"full":{"path":"0.1.0","value":{"target": 1, "sources": [2]}}}
+```
+
 For a Function node, the input pin is used to pass parameters to invoke the function from the ember server.
 The message payload types are:
 - msg.payload.args takes a javascript object containing the list of args for the function
