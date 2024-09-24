@@ -39,7 +39,7 @@ module.exports = function (RED) {
                  * @param {EmberLib.Element} element 
                  */
                 async function getEmberChildren(element) {
-                        if (element.isParameter()) {
+                        if (element.isParameter() || element.isMatrix()) {
                                 node.paths.push({ "path": element.path, "id": element.path + ":/" + element.identifier + "->" + (element.description ? element.description : element.value) });
                         } else if (element.isFunction()) {
                                 node.paths.push({ "path": element.path, "id": element.path + ":/" + element.identifier + "->" + getFunctionDescriptor(element) });
